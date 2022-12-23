@@ -1,0 +1,9 @@
+
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/views/public/healper.jpeg');
+    background-repeat : no-repeat;
+    background-size : cover;
+  }
