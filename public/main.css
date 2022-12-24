@@ -1,0 +1,9 @@
+.image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-thumbnail {
+  width: 1920px;
+}

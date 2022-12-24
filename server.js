@@ -26,7 +26,7 @@ app.get('/write', function(요청, 응답) {
 });
 
 app.post('/add', function(요청, 응답) {
-    응답.render('write.ejs');
+    응답.render('write.ejs')
     db.collection('counter').findOne({name : '게시물갯수'}, function(에러, 결과){
         console.log(결과.totalPost)
 
@@ -52,7 +52,7 @@ app.delete('/delete', function(요청, 응답){
     요청.body._id = parseInt(요청.body._id)
     db.collection('post').deleteOne(요청.body, function(에러, 결과){
       console.log('삭제완료');
-      응답.status(200).send({ message : '성공했습니다' });
+      응답.send('삭제완료');
     })
   });
 

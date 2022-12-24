@@ -21,11 +21,11 @@
       <div class="container"></div>
       <ul class="list-group">
         <% for (var i = 0; i < posts.length; i++){ %>
-        <li class="list-group-item post" data-detail="<%= posts[i]._id %>">
+        <li class="list-group-item">
           <h4> 할일 제목 : <%= posts[i].제목 %> </h4>
           <p> 할일 마감날짜 : <%= posts[i].날짜 %> </p>
           <button class="btn btn-danger delete" data-id="<%= posts[i]._id %>">삭제</button>
-          <button class="btn btn-primary" data-id="<%= posts[i]._id %>">상세</button>
+          <button class="btn btn-primary post" data-id="<%= posts[i]._id %>">상세</button>
         </li>
         <% } %>
       </ul>
@@ -40,14 +40,14 @@
             url : '/delete',
             data : { _id : e.target.dataset.id }
           }).done((결과)=>{
-            $(this).parent('li').fadeOut();
+            $(this).parent().fadeOut();
           })
         });
 
         $('document').ready(() => {
           $('.post').on('click', function () {
             let postId = -1;
-            postId = $(this).attr('data-detail');
+            postId = $(this).attr('data-id');
             location.href = "/detail/" + postId;
           })
         })
